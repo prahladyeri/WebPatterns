@@ -1,0 +1,25 @@
+---
+layout: default
+---
+
+<div class="home">
+
+  <!--h1 class="page-heading">Available Templates</h1-->
+
+  <ul class="post-list">
+    {% for post in site.posts %}
+      <li>
+        <!--span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span-->
+        <h2>
+          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a> <!--code>{{ post.tags | join: ' ' }}</code-->
+		  {% for tag in post.tags %}	<code>{{tag}}</code>	{% endfor %}
+        </h2>
+		  <kbd>{{ post.description }}</kbd>
+		  <hr style="margin-top:5px"></hr>
+      </li>
+    {% endfor %}
+  </ul>
+
+  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+
+</div>

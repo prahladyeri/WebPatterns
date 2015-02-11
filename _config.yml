@@ -1,0 +1,12 @@
+# Site settings
+permalink: /:title.html
+title: WebPatterns
+email: prahladyeri@yahoo.com
+description: Boilerplate code to kickstart your app development process.
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://prahladyeri.github.io/webpatterns" # the base hostname & protocol for your site
+twitter_username: prahladyeri
+github_username:  prahladyeri
+
+# Build settings
+markdown: kramdown

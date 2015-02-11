@@ -1,0 +1,28 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+@charset "utf-8";
+
+.site-description {
+	font-family: Helvetica, Arial;
+    font-size: 20px;
+    color: #828282;
+	font-style: regular;
+    letter-spacing: -0.5px;
+	line-height: 50px;
+    margin-bottom: 0;
+    margin-top: 4px;
+    float: left;
+}
+
+.site-nav a.page-link[href="/about.html"] {
+	font-family: Helvetica, Arial;
+    font-size: 20px;
+    color: #828282;
+	font-style: regular;
+    letter-spacing: -0.5px;
+	line-height: 50px;
+    margin-bottom: 0;
+    margin-top: 4px;
+	float: right;
+}

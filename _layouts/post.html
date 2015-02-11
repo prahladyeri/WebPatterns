@@ -1,0 +1,25 @@
+---
+layout: default
+---
+<div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">{{ page.title }}</h1>
+    <!--p class="post-meta">{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}	<span>Tags:</span> <code>{{ page.tags | join: ' ' }}</code>
+ </p-->
+ 
+ <p class="post-meta">
+ {% for tag in page.tags %}	<code>{{tag}}</code>	{% endfor %}
+ <p> <code>Pattern name: {{ page.url | replace:'.html','.md' | replace: '.md',''}}</code></p>
+ <p>  <code>Requirements: </code> {% for req in page.requirements %} <code>{{req}}</code>	{% endfor %} </p>
+{{ page.description }}
+ </p>
+  </header>
+	<article class="post-content">
+   {{ content }}
+  </article>
+
+  <a href="https://github.com/prahladyeri/WebPatterns/tree/master{{ page.url | replace:'.html','.md' | replace: '.md','' }}">Browse code</a>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="https://github.com/prahladyeri/WebPatterns/tree/master/dist/{{ page.url | replace:'.html','.md' | replace: '.md','' }}.zip">Download</a>
+</div>
