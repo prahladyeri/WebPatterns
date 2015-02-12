@@ -1,0 +1,56 @@
+<h1>This <em>pattern</em> works!</h1>
+
+<p>Congratulations! By using this pattern you have started a new journey towards kick-starting your web application.
+Before using this pattern, make sure that it matches your needs. You can browse a variety of patterns at https://github.com/prahladyeri/WebPatterns.</p>
+
+<h2>Pattern Details</h2>
+
+<p><code>Pattern name: /bootplates</code>
+<code>Requirements: bootstrap~3.0 angularjs~1.2.6 angular-ui-bootstrap~0.12.0</code></p>
+
+<p>This Template contains boilerplate code for creating an <code>angularjs</code> bootstrap app. Credit goes to the <a href="http://angular-ui.github.io/bootstrap/">Angular-ui</a> Team for providing the essential dialogService to integrate <code>twitter-bootstrap</code> dialogs with <code>angularjs</code>.</p>
+
+<h2>How To use this Pattern</h2>
+
+<p>The folder structure for this pattern is as follows:</p>
+
+<pre><code>/index.html         # Main startup file
+/static/            # Contains all static folders
+/app/               # angularjs app folder
+/app/controllers    # angular controllers
+/app/services       # angular services
+/app/views          # angular views
+/app/app.js         # main angularjs app
+/css/               # contains twitter-bootstrap stylesheet and a custom.css stylesheet for this pattern
+/fonts/             # FontAwesome fonts
+/js/                # Javascript for this pattern (custom.js) and a menu.json for static menus
+/lib/               # Angular and other library scripts.
+</code></pre>
+
+<h2>How to edit menus</h2>
+
+<p>The <code>twitter-bootstrap</code> navigation menus for this pattern are easily editable. Just edit the <code>json</code> file <code>/js/menus.json</code> file that specifies the menu structure for this pattern:</p>
+
+<pre><code>["Home", 
+        {"Tools":[
+            {"text": "Group-1", "link": "", "icon": ""}, 
+            {"text": "Alpha View", "link": "alpha", "icon": "tags"}, 
+            {"text": "-", "link": "", "icon": ""}, 
+            {"text": "Group-2", "link": "", "icon": ""}, 
+            {"text": "Beta View", "link": "beta", "icon": "tags"}, 
+            {"text": "Gamma View", "link": "gamma", "icon": "tags"}, 
+            {"text": "Diagnostics","link": "diagnostics", "icon": "asterisk"}]},
+        "About", "Contact"]
+</code></pre>
+
+<p>This <code>json</code> structure is pretty straightforward. The main menu is represented by an array where each item is either:</p>
+
+<ul>
+<li>A <code>String</code> (for top level menus like Home, etc.). The link is generated automatically, in this case <code>/home</code>.</li>
+<li>OR a <code>MenuItem</code> which is basically a Javascript object. It has only three properties:
+<ul>
+<li><code>text</code>: The text being displayed on the menu link or group, OR <code>-</code> for seperator.</li>
+<li><code>link</code>: The actual link or <code>href</code> attribute. Both absolute (<code>http://google.com</code>) and relative (<code>home</code>) urls are fine. Empty string for group item or separators.</li>
+<li><code>icon</code>: The <code>Glyphicon</code> name for the icon font-icon needed before the menu text, set an empty string if no icon is needed. For example, setting <code>asterisk</code> will add a <code>&lt;span&gt;</code> element with class <code>glyphicon glyphicon-asterisk</code> before the menu.</li>
+</ul></li>
+</ul>

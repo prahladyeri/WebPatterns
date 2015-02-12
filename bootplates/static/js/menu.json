@@ -1,0 +1,10 @@
+["Home", 
+		{"Tools":[
+			{"text": "Group-1", "link": "", "icon": ""}, 
+			{"text": "Alpha View", "link": "alpha", "icon": "tags"}, 
+			{"text": "-", "link": "", "icon": ""}, 
+			{"text": "Group-2", "link": "", "icon": ""}, 
+			{"text": "Beta View", "link": "beta", "icon": "tags"}, 
+			{"text": "Gamma View", "link": "gamma", "icon": "tags"}, 
+			{"text": "Diagnostics","link": "diagnostics", "icon": "asterisk"}]},
+		"About", "Contact"]

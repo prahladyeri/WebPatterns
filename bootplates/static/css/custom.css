@@ -1,0 +1,30 @@
+/* EVERYTHING RELATING TO BOOTSTRAP NAVBARS */
+.navbar-brand {
+  /*height: 41px;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+  padding-top: 0px;
+  margin-top:0px;*/
+}
+
+.navbar {
+  /*min-height: 41px;*/
+}
+
+.navbar-nav li a {
+	/*padding-top: 10px;
+	padding-bottom: 10px;*/
+}
+
+.navbar-nav li .dropdown-menu a {
+	/*padding-top: 0px;
+	padding-bottom: 0px;*/
+}
+
+.dropdown-menu.wide {
+	min-width: 270px;
+}
+
+.dropdown-menu {
+	min-width: 200px;
+}

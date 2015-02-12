@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html ng-app="bootPlatesApp">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title ng-bind="title"></title>
+			<!--link rel="stylesheet" href="css/bootstrap.min.css" />
+			<script src='js/bootstrap.min.js'></script-->
+	
+	<script type="text/javascript">
+		window.DEBUG = true;
+		html = "";
+		/* ORDER IS IMPORTANT */
+		if (window.DEBUG) {
+			html += '<link rel="stylesheet" href="static/css/bootstrap.min.css" />';
+			html += "<script src='static/lib/jquery.min.js'></scr" + "ipt>";
+			html += "<script src='static/lib/bootstrap.min.js'></scr" +  "ipt>";
+		}
+		else {
+			html += '<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" />';
+			html += "<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></scr" + "ipt>";
+			html += "<script src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js'></scr" + "ipt>";
+		}
+		document.write(html);
+	</script>
+	<link rel="stylesheet" href="static/css/custom.css" />
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top" ng-controller="navbarController as vm">
+	<div class="container" >
+		<div class="navbar-header">
+		  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		  </button>	
+		  <a class="navbar-brand" href="#">{{ vm.appTitle }}</a>
+		</div>
+
+		<div class="collapse navbar-collapse" id="myNavbar">
+		
+		  <ul class="nav navbar-nav main-menu">
+			<li class="active"><a href="#">Home</a></li>
+			<li class="dropdown">
+			  <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1
+			  <span class="caret"></span></a>
+			  <ul class="dropdown-menu">
+				<li><a href="#">Page 1-1</a></li>
+				<li><a href="#">Page 1-2</a></li>
+				<li><a href="#">Page 1-3</a></li>
+			  </ul>
+			</li>
+			<li><a href="#">Page 2</a></li>
+			<li><a href="#">Page 3</a></li>
+		  </ul>
+		  
+		<ul class="nav navbar-nav navbar-right">
+				<li class="dropdown register">
+					<a href="javascript:" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
+						<ul class="dropdown-menu wide" role="menu" style="padding: 15px; border-radius:10px;">
+							<form role="form" method="post" action="#" accept-charset="UTF-8">
+									<div class="form-group">
+										<label for="regemail">Email/Username: </label>
+										<input class="form-control" type="email" placeholder="Email" id="regemail" name="regemail"/>
+									</div>
+									<div class="form-group">
+										<label for="regpassword">Password: </label>
+										<input class="form-control" type="password" placeholder="Password" id="regpassword" name="regpassword"/>
+									</div>
+									<div class="form-group"><input class="form-control" type="password" placeholder="Confirm Password" id="regconfpassword" name="regconfpassword"/></div>
+									<button class="btn btn-primary btn-block" type="submit" id="sign-in" >Register</button>
+							</form>
+						</ul>
+				</li>
+				<li class="divider-vertical"></li>
+				
+				<li class="dropdown login"><a href="javascript:" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+						<div class="dropdown-menu wide"  style="padding: 15px; border-radius:10px;">
+							<form role="form" method="post" action="#" accept-charset="UTF-8">
+									  <div class="form-group">
+											<label for="loginemail">Email/Username: </label>
+											<input class="form-control" type="email" placeholder="Email" id="loginemail" name="loginemail"/>
+									  </div>
+									  <div class="form-group">
+											<label for="loginpassword">Password: </label>
+											<input class="form-control" type="password" placeholder="Password" id="loginpassword" name="loginpassword"/>
+									  </div>
+									<div class="checkbox-inline">
+										<label > <input type="checkbox" name="remember-me" id="remember-me" value="1"> Remember me</label>
+									</div>
+									<button class="btn btn-primary btn-block" type="submit" id="sign-in" >Sign In</button>
+									<label >or</label>
+									<button class="btn btn-primary btn-block" id="sign-in-google" >Sign In with Google</button>
+									<button class="btn btn-primary btn-block" id="sign-in-twitter" >Sign In with Twitter</button>
+							</form>
+						</div>
+				</li>
+		  </ul>	  
+		  
+		  </div>
+		</div>
+	</div>
+</nav>
+
+
+ <div data-ng-view  style="margin-top:40px" class="container">
+  <!--div class="row">
+    <div class="col-md-3">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+      incididunt ut labore et dolore magna aliqua.</p>
+    </div>
+    <div class="col-md-6">
+      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+      doloremque laudantium, totam rem aperiam.</p>
+    </div>
+    <div class="col-md-3">
+      <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae
+      dicta sunt explicabo.</p>
+    </div>
+  </div-->
+</div>
+
+	
+	
+	<!--3RD PARTY LIBS-->
+	<script src="static/lib/angular/angular.min.js"></script>
+	<script src="static/lib/angular/angular-route.min.js"></script>
+	<script src="static/lib/angular-ui-bootstrap.js"></script>
+	<script src="static/lib/handy.js"></script>
+	<!--CUSTOM SCRIPTS-->
+	<script src="static/js/custom.js"></script>
+	<script src="static/app/app.js"></script>
+    <script src="static/app/services/modalService.js"></script>
+    <script src="static/app/services/dataService.js"></script>
+	<script src="static/app/controllers/homeController.js"></script>
+	<script src="static/app/controllers/diagnosticsController.js"></script>
+</body>
+</html>
