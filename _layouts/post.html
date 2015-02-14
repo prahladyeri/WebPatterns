@@ -11,7 +11,7 @@ layout: default
  <p class="post-meta">
  {% for tag in page.tags %}	<code>{{tag}}</code>	{% endfor %}
  <p> <code>Pattern name: {{ page.url | replace:'.html','.md' | replace: '.md',''}}</code></p>
- <p>  <code>Requirements: </code> {% for req in page.requirements %} <code>{{req}}</code>	{% endfor %} </p>
+ <p>  <code>Components: </code> {% for req in page.components %} <code>{{req}}</code>	{% endfor %} </p>
 {{ page.description }}
  </p>
   </header>
