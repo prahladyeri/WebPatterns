@@ -1,7 +1,7 @@
-# This *pattern* works!
+# This pattern works!
 
 Congratulations! By using this pattern you have started a new journey towards kick-starting your web application.
-Before using this pattern, make sure that it matches your needs. You can browse a variety of patterns at https://github.com/prahladyeri/WebPatterns.
+Before using this pattern, make sure that it matches your needs. You can browse a variety of patterns at the [github repo](https://github.com/prahladyeri/WebPatterns).
 
 ## Pattern Details
 
@@ -48,3 +48,52 @@ This `json` structure is pretty straightforward. The main menu is represented by
 	- `text`: The text being displayed on the menu link or group, OR `-` for seperator.
 	- `link`: The actual link or `href` attribute. Both absolute (`http://google.com`) and relative (`home`) urls are fine. Empty string for group item or separators.
 	- `icon`: The `Glyphicon` name for the icon font-icon needed before the menu text, set an empty string if no icon is needed. For example, setting `asterisk` will add a `<span>` element with class `glyphicon glyphicon-asterisk` before the menu.
+	
+## How to set angular `controllers`, `views` and `services`:
+
+Looking at the folder structure, you will know where to find various angular code components in this pattern. The pattern comes with two example controllers:
+
+ - `diagnosticsController`: This controller is used to display a simple web page showing twitter-bootstrap and angular version numbers:
+ 
+	 angular.module('bootPlatesApp').controller("diagnosticsController", ['$scope','$location', '$route', '$routeParams', 'dataService', 'delay', function($scope, $location, $route, $routeParams, dataService, delay) {
+		console.log('diagnosticsController starts');
+		console.log("bt ver: " + delay.bootstrapVersion);
+		var vm = this;
+		vm.title = $route.title;
+		vm.version = dataService.version;
+		vm.angularVersion = angular.version.full.toString();
+		vm.bootstrapVersion = delay.bootstrapVersion;
+		console.log('diagnosticsController ends');
+	}]);
+	
+ - `homeController`: Controller for the display of home page.
+ - `authController`: Controls user management features - Login/Logout/Register.
+ 
+The corresponding views are `diagnostics.html` and `home.html`. Three other views called `alpha.html`, `beta.html` and `gamma.html` come bundled with the pattern as empty place-holders. These views are directly displayed by the routing engine and no controller is defined. You can however, edit the app.js and change the entire routing process as you please:
+
+		.when("/notfound", {
+			title: "404 - Not Found",
+			templateUrl: thepath + "notfound.html"
+		})
+		.when("/alpha", {
+			title: "Alpha View - Modify as you please",
+			templateUrl: thepath + "alpha.html"
+		})
+		.when("/beta", {
+			title: "Beta View - Modify as you please",
+			templateUrl: thepath + "beta.html"
+		})
+		.when("/gamma", {
+			title: "Gamma View - Modify as you please",
+			templateUrl: thepath + "gamma.html"
+		})
+		.otherwise({
+			redirectTo: '/notfound',
+		})
+		;
+		
+## How do I handle backend data?
+		
+## How do I implement user management (Login/Logout/Register)
+
+## How do I implement an additional dialog.
