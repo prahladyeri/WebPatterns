@@ -14,17 +14,17 @@ Before using this pattern, make sure that it matches your needs. You can browse 
 
 <p>The folder structure for this pattern is as follows:</p>
 
-<pre><code>/index.html         # Main startup file
-/static/            # Contains all static folders
-/app/               # angularjs app folder
-/app/controllers    # angular controllers
-/app/services       # angular services
-/app/views          # angular views
-/app/app.js         # main angularjs app
-/css/               # contains twitter-bootstrap stylesheet and a custom.css stylesheet for this pattern
-/fonts/             # FontAwesome fonts
-/js/                # Javascript for this pattern (custom.js) and a menu.json for static menus
-/lib/               # Angular and other library scripts.
+<pre><code>/index.html                 # Main startup file
+/static/                    # Contains all static folders
+/static/app/                # angularjs app folder
+/static/app/controllers     # angular controllers
+/static/app/services        # angular services
+/static/app/views           # angular views
+/static/app/app.js          # main angularjs app
+/static/css/                # contains twitter-bootstrap stylesheet and a custom.css stylesheet for this pattern
+/static/fonts/              # FontAwesome fonts
+/static/js/                 # Javascript for this pattern (custom.js) and a menu.json for static menus
+/static/lib/                # Angular and other library scripts.
 </code></pre>
 
 <h2>How to edit menus</h2>
@@ -102,6 +102,33 @@ Before using this pattern, make sure that it matches your needs. You can browse 
 
 <h2>How do I handle backend data?</h2>
 
-<h2>How do I implement user management (Login/Logout/Register)</h2>
+<p>You may edit the <code>/app/services/dataService.js</code> template to create an interface to your back-end data. To fetch data during initialization, add some functionality to the empty <code>self.initialize</code> function which is already defined there.</p>
 
-<h2>How do I implement an additional dialog.</h2>
+<h2>How do I implement user management (Login/Logout/Register)?</h2>
+
+<p>You may either handle user accounts by creating a separate <code>authService.js</code> file and referencing it in index.html, or by working upon the dataService itself. Since I could not anticipate these preferences on your part, I've left it upon you.</p>
+
+<h2>How do I implement a modal dialog?</h2>
+
+<p>Implementing a modal dialog in your app is pretty straightforward. Basic angular plumbing for showing the dialog is already implemented in <code>dialogService.js</code>. All you now need to do is inject this service in the required controller and call the <code>show()</code> method with your chosen variables. For a reference implementation, refer to the diagnosticsController where a demo button to show the dialog is already implemented:</p>
+
+<p><strong>diagnosticsController.js</strong></p>
+
+<pre><code>//START: Show a demo dialog
+var modalOptions = {
+    closeButtonText: 'Cancel Me',
+    actionButtonText: 'Okay Me',
+    headerText: 'Demo Dialog Button',
+    bodyText: 'This is a dummy dialog shown from diagnosticsController for your reference.'
+};
+
+this.showTheDialog = function(){
+    modalService.show({}, modalOptions);
+}
+//END: Show a demo dialog
+</code></pre>
+
+<p><strong>diagnostics.html</strong></p>
+
+<pre><code>&lt;button class="btn-lg btn-primary" ng-click="vm.showTheDialog();"&gt;Dialog Demo&lt;/button&gt;
+</code></pre>

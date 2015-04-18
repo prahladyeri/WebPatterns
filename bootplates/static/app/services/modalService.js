@@ -5,7 +5,7 @@ angular.module('bootPlatesApp').service('modalService', ['$modal',
             backdrop: true,
             keyboard: true,
             modalFade: true,
-            templateUrl: '/app/partials/modal.html'
+            templateUrl: '/static/app/partials/modal.html'
         };
 
         var modalOptions = {

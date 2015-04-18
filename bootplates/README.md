@@ -14,17 +14,17 @@ This Template contains boilerplate code for creating an `angularjs` bootstrap ap
 
 The folder structure for this pattern is as follows:
 
-	/index.html			# Main startup file
-	/static/			# Contains all static folders
-	/app/				# angularjs app folder
-	/app/controllers	# angular controllers
-	/app/services		# angular services
-	/app/views			# angular views
-	/app/app.js			# main angularjs app
-	/css/				# contains twitter-bootstrap stylesheet and a custom.css stylesheet for this pattern
-	/fonts/				# FontAwesome fonts
-	/js/				# Javascript for this pattern (custom.js) and a menu.json for static menus
-	/lib/				# Angular and other library scripts.
+	/index.html					# Main startup file
+	/static/					# Contains all static folders
+	/static/app/				# angularjs app folder
+	/static/app/controllers		# angular controllers
+	/static/app/services		# angular services
+	/static/app/views			# angular views
+	/static/app/app.js			# main angularjs app
+	/static/css/				# contains twitter-bootstrap stylesheet and a custom.css stylesheet for this pattern
+	/static/fonts/				# FontAwesome fonts
+	/static/js/					# Javascript for this pattern (custom.js) and a menu.json for static menus
+	/static/lib/				# Angular and other library scripts.
 	
 ## How to edit menus
 
@@ -93,7 +93,32 @@ The corresponding views are `diagnostics.html` and `home.html`. Three other view
 		;
 		
 ## How do I handle backend data?
-		
-## How do I implement user management (Login/Logout/Register)
 
-## How do I implement an additional dialog.
+You may edit the `/app/services/dataService.js` template to create an interface to your back-end data. To fetch data during initialization, add some functionality to the empty `self.initialize` function which is already defined there.
+		
+## How do I implement user management (Login/Logout/Register)?
+
+You may either handle user accounts by creating a separate `authService.js` file and referencing it in index.html, or by working upon the dataService itself. Since I could not anticipate these preferences on your part, I've left it upon you.
+
+## How do I implement a modal dialog?
+
+Implementing a modal dialog in your app is pretty straightforward. Basic angular plumbing for showing the dialog is already implemented in `dialogService.js`. All you now need to do is inject this service in the required controller and call the `show()` method with your chosen variables. For a reference implementation, refer to the diagnosticsController where a demo button to show the dialog is already implemented:
+
+**diagnosticsController.js**
+
+	//START: Show a demo dialog
+	var modalOptions = {
+		closeButtonText: 'Cancel Me',
+		actionButtonText: 'Okay Me',
+		headerText: 'Demo Dialog Button',
+		bodyText: 'This is a dummy dialog shown from diagnosticsController for your reference.'
+	};
+	
+	this.showTheDialog = function(){
+		modalService.show({}, modalOptions);
+	}
+	//END: Show a demo dialog
+
+**diagnostics.html**
+
+	<button class="btn-lg btn-primary" ng-click="vm.showTheDialog();">Dialog Demo</button>
